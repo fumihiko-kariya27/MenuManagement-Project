@@ -3,6 +3,8 @@ package com.example.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,8 +42,15 @@ public class UserSignUpController {
 	
 	// ユーザー登録処理後ログイン画面に遷移
 	@PostMapping("/signup")
-	public String postSignup(@ModelAttribute SignUpForm form)
+	public String postSignup(Model model, @ModelAttribute @Validated SignUpForm form, BindingResult bindingResult)
 	{
+		// バインドでエラーが発生していた場合はユーザー登録画面に戻る
+		if(bindingResult.hasErrors())
+		{
+			log.error("ユーザー登録情報でバインドエラーが発生しました");
+			return getSignUp(model, form);
+		}
+		
 		log.info(form.toString());
 		
 		return "redirect:/login";
