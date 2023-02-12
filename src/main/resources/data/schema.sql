@@ -1,0 +1,3 @@
+DROP TABLE IF EXISTS cuisine_master;
+
+CREATE TABLE IF NOT EXISTS cuisine_master(cuisine_id INTEGER AUTO_INCREMENT PRIMARY KEY, cuisine_name VARCHAR(100) NOT NULL);
