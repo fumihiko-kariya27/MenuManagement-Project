@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 /**
@@ -15,18 +16,19 @@ import jakarta.validation.constraints.Pattern;
 @Data
 public class SignUpForm {
 	
-	@NotBlank
-	@Pattern(regexp = "^[a-zA-Z0-9]+$")
+	@NotBlank(groups = ValidationGroupFirst.class)
+	@Pattern(regexp = "^[a-zA-Z0-9]+$", groups = ValidationGroupSecond.class)
 	private String userId;
 	
-	@NotBlank
-	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+")
+	@NotBlank(groups = ValidationGroupFirst.class)
+	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+", groups = ValidationGroupSecond.class)
 	private String userName;
 	
-	@NotBlank
-	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+")
+	@NotBlank(groups = ValidationGroupFirst.class)
+	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+", groups = ValidationGroupSecond.class)
 	@Length(min = 8, max = 16)
 	private String password;
 	
+	@NotNull(groups = ValidationGroupFirst.class)
 	private int gender;
 }

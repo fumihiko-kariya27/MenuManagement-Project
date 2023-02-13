@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 import com.example.form.SignUpForm;
+import com.example.form.ValidationGroupOrder;
 import com.example.service.GenderMapGenerater;
 
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +43,7 @@ public class UserSignUpController {
 	
 	// ユーザー登録処理後ログイン画面に遷移
 	@PostMapping("/signup")
-	public String postSignup(Model model, @ModelAttribute @Validated SignUpForm form, BindingResult bindingResult)
+	public String postSignup(Model model, @ModelAttribute @Validated(value = ValidationGroupOrder.class) SignUpForm form, BindingResult bindingResult)
 	{
 		// バインドでエラーが発生していた場合はユーザー登録画面に戻る
 		if(bindingResult.hasErrors())
