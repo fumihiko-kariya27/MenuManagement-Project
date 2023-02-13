@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 /**
@@ -28,5 +29,6 @@ public class SignUpForm {
 	@Length(min = 8, max = 16)
 	private String password;
 	
+	@NotNull
 	private int gender;
 }
