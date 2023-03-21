@@ -2,6 +2,7 @@ package com.example.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @author kariyafumihiko
@@ -14,5 +15,12 @@ public class LoginController {
 	public String getLogin()
 	{
 		return "login/login";
+	}
+	
+	// ログイン後はメニュー一覧画面に遷移
+	@PostMapping("/login")
+	public String postLogin()
+	{
+		return "redirect:/menu/list";
 	}
 }
