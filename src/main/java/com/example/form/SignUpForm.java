@@ -30,5 +30,6 @@ public class SignUpForm {
 	private String password;
 	
 	@NotNull(groups = ValidationGroupFirst.class)
+	@NotNull
 	private int gender;
 }
