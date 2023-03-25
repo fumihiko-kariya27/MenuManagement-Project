@@ -15,9 +15,6 @@ import java.util.Locale;
 
 @Service
 public class GenderMapGenerater {
-	// 男女の識別値
-	private final int MALE = 1;
-	private final int FEMALE = 2;
 	
 	@Autowired
 	private MessageSource messageSource;
@@ -29,8 +26,8 @@ public class GenderMapGenerater {
 		String female = messageSource.getMessage("gender_female", null, Locale.getDefault());
 		
 		Map<String, Integer> genderMap = new HashMap<>();
-		genderMap.put(male, MALE);
-		genderMap.put(female, FEMALE);
+		genderMap.put(male, UserGender.MALE.getGender());
+		genderMap.put(female, UserGender.FEMALE.getGender());
 		
 		return genderMap;
 	}

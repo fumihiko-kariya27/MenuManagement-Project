@@ -14,6 +14,6 @@ public class UserInfo {
 	private String userId;
 	private String userName;
 	private String password;
-	private UserGender gender;
+	private int gender;
 	
 }

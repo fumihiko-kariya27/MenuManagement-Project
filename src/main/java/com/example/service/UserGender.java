@@ -1,6 +1,6 @@
-package com.example.domain.user.model;
+package com.example.service;
 
-public enum UserGender {
+enum UserGender {
 	
 	MALE(1),
 	FEMALE(2);
@@ -16,6 +16,11 @@ public enum UserGender {
 	public String toString()
 	{
 		return String.valueOf(this.gender);
+	}
+	
+	public int getGender()
+	{
+		return this.gender;
 	}
 
 }
