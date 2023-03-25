@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
+import com.example.domain.user.model.UserInfo;
+import com.example.domain.user.service.UserService;
 import com.example.form.SignUpForm;
 import com.example.form.ValidationGroupOrder;
 import com.example.service.GenderMapGenerater;
@@ -30,6 +33,12 @@ public class UserSignUpController {
 	
 	@Autowired
 	private GenderMapGenerater genderMapGenerater;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 	
 	// ユーザー登録画面に遷移
 	@GetMapping("/signup")
@@ -53,6 +62,10 @@ public class UserSignUpController {
 		}
 		
 		log.info(form.toString());
+		
+		// Formをユーザー情報に変換し、DBに登録
+		UserInfo user = modelMapper.map(form, UserInfo.class);
+		userService.signUp(user);
 		
 		return "redirect:/login";
 	}
