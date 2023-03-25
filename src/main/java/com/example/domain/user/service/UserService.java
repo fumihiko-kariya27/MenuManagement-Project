@@ -1,5 +1,7 @@
 package com.example.domain.user.service;
 
+import java.util.List;
+
 import com.example.domain.user.model.UserInfo;
 
 /**
@@ -11,5 +13,8 @@ public interface UserService {
 
 	/* ユーザー登録 */
 	public void signUp(UserInfo user);
+	
+	/* ユーザー一覧取得 */
+	public List<UserInfo> getUsers();
 	
 }

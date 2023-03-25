@@ -5,4 +5,8 @@
     <insert id="insertOneUser">
         INSERT INTO user_master(user_id, user_name, password, gender) VALUES(#{userId}, #{userName}, #{password}, #{gender})
     </insert>
+    <!-- ユーザー複数件取得 -->
+    <select id="findManyUser" resultType="UserInfo">
+        SELECT * FROM user_master
+    </select>
 </mapper>
