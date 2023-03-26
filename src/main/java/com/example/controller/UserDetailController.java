@@ -6,11 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.user.model.UserInfo;
 import com.example.domain.user.service.UserService;
 import com.example.form.UserDetailForm;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author kariyafumihiko
@@ -19,6 +22,7 @@ import com.example.form.UserDetailForm;
 
 @Controller
 @RequestMapping("/user")
+@Slf4j
 public class UserDetailController {
 	
 	@Autowired
@@ -27,6 +31,7 @@ public class UserDetailController {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	// ユーザー詳細画面を表示
 	@GetMapping("/detail/{userId}")
 	public String getUser(UserDetailForm form, Model model, @PathVariable("userId") String userId)
 	{
@@ -36,5 +41,24 @@ public class UserDetailController {
 		model.addAttribute("userDetail", form);
 		
 		return "user/detail";
+	}
+	
+	// ユーザー更新処理
+	@PostMapping(value="/detail", params="update")
+	public String updateUser(UserDetailForm form, Model model)
+	{
+		// ユーザー更新後、一覧画面にリダイレクト
+		log.info("IDの値：" + form.getUserId());
+		service.updateUser(form.getUserId(), form.getUserName());
+		return "redirect:/user/list";
+	}
+	
+	// ユーザー削除処理
+	@PostMapping(value="/detail", params="delete")
+	public String deleteUser(UserDetailForm form)
+	{
+		// ユーザー削除後、一覧画面にリダイレクト
+		service.deleteUser(form.getUserId());
+		return "redirect:/user/list";
 	}
 }

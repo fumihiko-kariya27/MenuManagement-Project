@@ -8,7 +8,7 @@
         <result column="gender" property="gender"/>
     </resultMap>
 
-    <!-- ユーザー１件登録 -->
+    <!-- ユーザー登録 -->
     <insert id="insertOneUser">
         INSERT INTO user_master(user_id, user_name, password, gender) VALUES(#{userId}, #{userName}, #{password}, #{gender})
     </insert>
@@ -20,4 +20,12 @@
     <select id="findOneUser" resultMap="userInfo">
         SELECT * FROM user_master WHERE user_id = #{userId}
     </select>
+    <!-- ユーザー更新 -->
+    <update id="updateOneUser">
+        UPDATE user_master SET user_name = #{userName} WHERE user_id = #{userId}
+    </update>
+    <!-- ユーザー削除 -->
+    <delete id="deleteOneUser">
+        DELETE FROM user_master WHERE user_id = #{userId}
+    </delete>
 </mapper>

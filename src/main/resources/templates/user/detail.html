@@ -9,7 +9,8 @@
             <div class="header border-bottom">
                 <h1 class="h2" th:text="#{user.info.detail}"></h1>
             </div>
-            <form id="user-detail-form" method="post" th:action="@{/user/detail}" class="form-signup" th:object="${userDetailForm}">
+            <form id="user-detail-form" method="post" th:action="@{/user/detail}" class="form-signup" th:object="${userDetail}">
+                <input type="hidden" th:field="*{userId}">
                 <!-- ユーザー詳細情報 -->
                 <table class="table table-striped table-bordered table-hover">
                     <tbody>
@@ -27,10 +28,16 @@
                             <th th:text="#{user.detail.gender}"></th>
                             <!-- プロパティファイルから読み込みたい -->
                             <!-- ハードコーディング箇所調査して修正予定 -->
-                            <td th:text="*{gender == 1 ? '男性' : '女性'}"></td>
+                            <td th:text="*{gender==1} ? #{user.detail.gender.male}:#{user.detail.gender.female}"></td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="text-center">
+                    <!-- 更新ボタン -->
+                    <button class="btn btn-primary" type="submit" name="update" th:text="#{btn.update}"></button>
+                    <!-- 削除ボタン -->
+                    <button class="btn btn-primary" type="submit" name="delete" th:text="#{btn.delete}"></button>
+                </div>
             </form>
         </div>
     </body>

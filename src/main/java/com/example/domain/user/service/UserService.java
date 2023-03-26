@@ -20,4 +20,10 @@ public interface UserService {
 	/* ユーザー１件取得 */
 	public UserInfo getUser(String userId);
 	
+	/* ユーザー更新 */
+	public void updateUser(String userId, String userName);
+	
+	/* ユーザー削除 */
+	public void deleteUser(String userId);
+	
 }
