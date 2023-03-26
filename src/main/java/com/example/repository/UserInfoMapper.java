@@ -19,4 +19,7 @@ public interface UserInfoMapper {
 	
 	/* ユーザー複数件取得 */
 	public List<UserInfo> findManyUser();
+	
+	/* ユーザー１件取得 */
+	public UserInfo findOneUser(String userId);
 }

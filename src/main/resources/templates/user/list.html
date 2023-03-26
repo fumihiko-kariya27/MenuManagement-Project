@@ -17,13 +17,17 @@
                             <th class="th-width" th:text="#{user.list.userId}"></th>
                             <th class="th-width" th:text="#{user.list.userName}"></th>
                             <th class="th-width" th:text="#{user.list.gender}"></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="item : ${userList}">
                             <td th:text="${item.userId}"></td>
                             <td th:text="${item.userName}"></td>
-                            <td th:text="${item.gender==1} ? '男性':'女性'"></td>
+                            <td th:text="${item.gender==1} ? #{user.list.gender.male}:#{user.list.gender.female}"></td>
+                            <td>
+                                <a class="btn btn-primary" th:href="@{'/user/detail/' + ${item.userId}}" th:text="#{user.info.detail}"></a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

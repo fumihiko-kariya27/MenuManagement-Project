@@ -30,4 +30,9 @@ public class UserServiceImpl implements UserService {
 		return mapper.findManyUser();
 	}
 
+	@Override
+	public UserInfo getUser(String userId) {
+		return mapper.findOneUser(userId);
+	}
+
 }

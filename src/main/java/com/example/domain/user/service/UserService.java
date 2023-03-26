@@ -17,4 +17,7 @@ public interface UserService {
 	/* ユーザー一覧取得 */
 	public List<UserInfo> getUsers();
 	
+	/* ユーザー１件取得 */
+	public UserInfo getUser(String userId);
+	
 }
