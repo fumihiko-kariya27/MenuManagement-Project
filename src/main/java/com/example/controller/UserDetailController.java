@@ -3,6 +3,7 @@ package com.example.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,6 +45,7 @@ public class UserDetailController {
 	}
 	
 	// ユーザー更新処理
+	@Transactional
 	@PostMapping(value="/detail", params="update")
 	public String updateUser(UserDetailForm form, Model model)
 	{
@@ -54,6 +56,7 @@ public class UserDetailController {
 	}
 	
 	// ユーザー削除処理
+	@Transactional
 	@PostMapping(value="/detail", params="delete")
 	public String deleteUser(UserDetailForm form)
 	{
