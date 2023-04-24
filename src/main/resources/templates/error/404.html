@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <meta charset="UTF8">
+        <title>404 Error Page</title>
+    </body>
+    <head>
+        <h1 th:text="${status}"></h1>
+        <h1 th:text="${error}"></h1>
+        <p th:text="#{404.error.message}"></p>
+    </head>
+</html>
