@@ -26,8 +26,6 @@
                         </tr>
                         <tr>
                             <th th:text="#{user.detail.gender}"></th>
-                            <!-- プロパティファイルから読み込みたい -->
-                            <!-- ハードコーディング箇所調査して修正予定 -->
                             <td th:text="*{gender==1} ? #{user.detail.gender.male}:#{user.detail.gender.female}"></td>
                         </tr>
                     </tbody>

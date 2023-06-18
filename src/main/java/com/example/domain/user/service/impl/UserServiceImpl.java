@@ -58,4 +58,9 @@ public class UserServiceImpl implements UserService {
 		mapper.deleteOneUser(userId);
 	}
 
+	// ログインユーザー取得
+	public UserInfo getLoginUser(String userId) {
+		return mapper.findLoginUser(userId);
+	}
+
 }

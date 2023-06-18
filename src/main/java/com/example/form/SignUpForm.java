@@ -16,20 +16,27 @@ import jakarta.validation.constraints.Pattern;
 @Data
 public class SignUpForm {
 	
+	// ユーザーID
 	@NotBlank(groups = ValidationGroupFirst.class)
 	@Pattern(regexp = "^[a-zA-Z0-9]+$", groups = ValidationGroupSecond.class)
 	private String userId;
 	
+	// ユーザー名
 	@NotBlank(groups = ValidationGroupFirst.class)
 	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+", groups = ValidationGroupSecond.class)
 	private String userName;
 	
+	// パスワード
 	@NotBlank(groups = ValidationGroupFirst.class)
 	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+", groups = ValidationGroupSecond.class)
 	@Length(min = 8, max = 16)
 	private String password;
 	
+	// 性別
 	@NotNull(groups = ValidationGroupFirst.class)
 	@NotNull
 	private int gender;
+	
+	// 権限
+	private int role;
 }

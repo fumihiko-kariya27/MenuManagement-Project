@@ -26,4 +26,7 @@ public interface UserService {
 	/* ユーザー削除 */
 	public void deleteUser(String userId);
 	
+	/* ログインユーザー情報取得 */
+	public UserInfo getLoginUser(String userId);
+	
 }

@@ -30,4 +30,6 @@ public interface UserInfoMapper {
 	/* ユーザー削除 */
 	public void deleteOneUser(@Param("userId") String userId);
 	
+	/* ログインユーザー取得 */
+	public UserInfo findLoginUser(String userId);
 }

@@ -16,13 +16,16 @@
                         <tr>
                             <th class="th-width" th:text="#{cuisine.list.cuisineId}"></th>
                             <th class="th-width" th:text="#{cuisine.list.cuisineName}"></th>
+                            <th class="th-width" th:text="#{cuisine.list.category}"></th>
+                            <th class="th-width" th:text="#{cuisine.list.currentDate}"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="item : ${cuisineList}">
                             <td th:text="${item.cuisineId}"></td>
                             <td th:text="${item.cuisineName}"></td>
-
+                            <td th:text="${item.category}"></td>
+                            <td th:text="${item.currentDate}"></td>
                         </tr>
                     </tbody>
                 </table>

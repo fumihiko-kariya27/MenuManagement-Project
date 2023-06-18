@@ -6,11 +6,12 @@
         <id column="user_id" property="userId"/>
         <result column="user_name" property="userName"/>
         <result column="gender" property="gender"/>
+        <result column="user_role" property="role"/>
     </resultMap>
 
     <!-- ユーザー登録 -->
     <insert id="insertOneUser">
-        INSERT INTO user_master(user_id, user_name, password, gender) VALUES(#{userId}, #{userName}, #{password}, #{gender})
+        INSERT INTO user_master(user_id, user_name, password, gender, user_role) VALUES(#{userId}, #{userName}, #{password}, #{gender}, 2)
     </insert>
     <!-- ユーザー複数件取得 -->
     <select id="findManyUser" resultType="UserInfo">
@@ -28,4 +29,8 @@
     <delete id="deleteOneUser">
         DELETE FROM user_master WHERE user_id = #{userId}
     </delete>
+    <!-- ログインユーザー情報取得 -->
+    <select id="findLoginUser" resultType="UserInfo">
+        SELECT * FROM user_master WHERE user_id = #{userId}
+    </select>
 </mapper>

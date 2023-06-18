@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.repository.CuisineInfoMapper">
-    <!-- マッピング定義(ユーザー情報) -->
+    <!-- マッピング定義(メニュー情報) -->
     <resultMap id="cuisineInfo" type="com.example.domain.cuisine.model.CuisineInfo">
         <id column="cuisine_id" property="cuisineId"/>
         <result column="cuisine_name" property="cuisineName"/>
+        <result column="category" property="category"/>
+        <result column="crt_date" property="currentDate"/>
     </resultMap>
     <!-- メニュー全件取得 -->
     <select id="getAllCuisine" resultType="CuisineInfo">
