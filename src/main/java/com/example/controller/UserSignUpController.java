@@ -50,7 +50,7 @@ public class UserSignUpController {
 		return "user/signup";
 	}
 	
-	// ユーザー登録処理後ログイン画面に遷移
+	// ユーザー登録処理後ユーザー一覧画面に遷移
 	@PostMapping("/signup")
 	public String postSignup(Model model, @ModelAttribute @Validated(value = ValidationGroupOrder.class) SignUpForm form, BindingResult bindingResult)
 	{
@@ -67,6 +67,6 @@ public class UserSignUpController {
 		UserInfo user = modelMapper.map(form, UserInfo.class);
 		userService.signUp(user);
 		
-		return "redirect:/login";
+		return "redirect:/user/list";
 	}
 }

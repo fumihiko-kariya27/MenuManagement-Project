@@ -13,6 +13,6 @@ public class CuisineInfo {
 	private String cuisineId;
 	private String cuisineName;
 	private String category;
-	private String currentDate;
+	private String cookDate;
 	
 }

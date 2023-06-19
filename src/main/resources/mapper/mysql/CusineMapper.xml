@@ -6,10 +6,10 @@
         <id column="cuisine_id" property="cuisineId"/>
         <result column="cuisine_name" property="cuisineName"/>
         <result column="category" property="category"/>
-        <result column="crt_date" property="currentDate"/>
+        <result column="cook_date" property="cookDate"/>
     </resultMap>
     <!-- メニュー全件取得 -->
     <select id="getAllCuisine" resultType="CuisineInfo">
-        SELECT * FROM cuisine_master
+        SELECT cuisine_id, cuisine_name, category, cook_date FROM cuisine_master
     </select>
 </mapper>
