@@ -16,8 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
  * セキュリティの各種設定
  */
 
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 	
 	// パスワード暗号化
