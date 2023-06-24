@@ -62,20 +62,20 @@ public class SecurityConfig {
 	}
 	
 	// インメモリ認証を使用して、仮のユーザーIDとパスワードを使用してログインできるようにする
-	@Bean
-	public UserDetailsService users() {
-		
-		UserDetails user = User.builder()
-				.username("user")
-				.password(passwordEncoder().encode("user"))
-				.authorities("USER")
-				.build();
-		UserDetails admin = User.builder()
-				.username("admin")
-				.password(passwordEncoder().encode("admin"))
-				.authorities("ADMIN")
-				.build();
-		return new InMemoryUserDetailsManager(user, admin);
-	}
+//	@Bean
+//	public UserDetailsService users() {
+//
+//		UserDetails user = User.builder()
+//				.username("user")
+//				.password(passwordEncoder().encode("user"))
+//				.authorities("USER")
+//				.build();
+//		UserDetails admin = User.builder()
+//				.username("admin")
+//				.password(passwordEncoder().encode("admin"))
+//				.authorities("ADMIN")
+//				.build();
+//		return new InMemoryUserDetailsManager(user, admin);
+//	}
 	
 }
