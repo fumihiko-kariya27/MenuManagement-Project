@@ -6,11 +6,13 @@ package com.example.domain.cuisine.model;
 
 public enum CuisineCategory {
 	// 和食
-	JAPANESE("Japanese"),
+	JAPANESE("和食"),
 	// 洋食
-	WESTERN("Western"),
+	WESTERN("洋食"),
 	// 中華
-	CHINESE("Chinese");
+	CHINESE("中華"),
+	// その他
+	OHTER("その他");
 	
 	private String category;
 	

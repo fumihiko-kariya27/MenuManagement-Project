@@ -8,5 +8,7 @@ public interface CuisineService {
 	
 	/* メニュー全件取得 */
 	public List<CuisineInfo> getAllCuisine();
-
+	
+	/* メニュー登録 */
+	public void registCuisine(CuisineInfo cuisineInfo);
 }

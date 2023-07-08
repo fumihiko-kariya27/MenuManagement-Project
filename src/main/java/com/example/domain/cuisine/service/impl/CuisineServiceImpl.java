@@ -20,10 +20,16 @@ public class CuisineServiceImpl implements CuisineService {
 	@Autowired
 	private CuisineInfoMapper mapper;
 
-	// 全件取得
+	// メニュー全件取得
 	@Override
 	public List<CuisineInfo> getAllCuisine() {
 		return mapper.getAllCuisine();
+	}
+
+	// メニュー登録
+	@Override
+	public void registCuisine(CuisineInfo cuisineInfo) {
+		mapper.registCuisine(cuisineInfo);
 	}
 
 }

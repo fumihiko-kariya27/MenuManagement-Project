@@ -12,4 +12,8 @@
     <select id="getAllCuisine" resultMap="cuisineInfo">
         SELECT * FROM cuisine_master
     </select>
+    <!-- メニュー登録 -->
+    <insert id="registCuisine">
+        INSERT INTO cuisine_master(cuisine_name, category) VALUES(#{cuisineName}, #{category})
+    </insert>
 </mapper>
