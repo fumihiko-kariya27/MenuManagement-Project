@@ -11,4 +11,7 @@ public interface CuisineService {
 	
 	/* メニュー登録 */
 	public void registCuisine(CuisineInfo cuisineInfo);
+	
+	/* メニュー１件取得 */
+	public CuisineInfo getCuisineByName(String cuisineName);
 }

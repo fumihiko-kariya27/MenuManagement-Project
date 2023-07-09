@@ -32,4 +32,9 @@ public class CuisineServiceImpl implements CuisineService {
 		mapper.registCuisine(cuisineInfo);
 	}
 
+	@Override
+	public CuisineInfo getCuisineByName(String cuisineName) {
+		return mapper.getCuisineByName(cuisineName);
+	}
+
 }
