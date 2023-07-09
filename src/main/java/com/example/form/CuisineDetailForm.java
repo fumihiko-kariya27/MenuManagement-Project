@@ -1,16 +1,14 @@
-package com.example.domain.cuisine.model;
+package com.example.form;
 
 import lombok.Data;
 
 /**
  * @author kariyafumihiko
- * メニュー情報とメニューマスタテーブルのマッピングクラス
+ * メニュー詳細フォームクラス
  */
 
 @Data
-public class CuisineInfo {
-	// ID
-	private String cuisineId;
+public class CuisineDetailForm {
 	// 料理名
 	private String cuisineName;
 	// カテゴリ

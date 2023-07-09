@@ -7,6 +7,7 @@
         <result column="cuisine_name" property="cuisineName"/>
         <result column="category" property="category"/>
         <result column="cook_date" property="cookDate"/>
+        <result column="ingredients" property="ingredients"/>
     </resultMap>
     <!-- メニュー全件取得 -->
     <select id="getAllCuisine" resultMap="cuisineInfo">
@@ -16,4 +17,8 @@
     <insert id="registCuisine">
         INSERT INTO cuisine_master(cuisine_name, category) VALUES(#{cuisineName}, #{category})
     </insert>
+    <!-- メニュー１件取得 -->
+    <select id="getCuisineByName" resultMap="cuisineInfo">
+        SELECT * FROM cuisine_master WHERE cuisine_name = #{cuisineName}
+    </select>
 </mapper>
