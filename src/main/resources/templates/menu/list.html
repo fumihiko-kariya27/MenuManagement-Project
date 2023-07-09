@@ -14,18 +14,20 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead class="thead-light">
                         <tr>
-                            <th class="th-width" th:text="#{cuisine.list.cuisineId}"></th>
                             <th class="th-width" th:text="#{cuisine.list.cuisineName}"></th>
                             <th class="th-width" th:text="#{cuisine.list.category}"></th>
                             <th class="th-width" th:text="#{cuisine.list.cookDate}"></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="item : ${cuisineList}">
-                            <td th:text="${item.cuisineId}"></td>
                             <td th:text="${item.cuisineName}"></td>
                             <td th:text="${item.category}"></td>
                             <td th:text="${item.cookDate}"></td>
+                            <td>
+                                <a class="btn btn-primary" th:href="@{'/menu/detail/' + ${item.cuisineName}}" th:text="#{cuisine.detail.info}"></a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
