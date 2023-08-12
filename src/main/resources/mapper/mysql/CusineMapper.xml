@@ -21,4 +21,8 @@
     <select id="getCuisineByName" resultMap="cuisineInfo">
         SELECT * FROM cuisine_master WHERE cuisine_name = #{cuisineName}
     </select>
+    <!-- メニュー削除 -->
+    <delete id="deleteCuisine">
+        DELETE FROM cuisine_master WHERE cuisine_name = #{cuisineName};
+    </delete>
 </mapper>

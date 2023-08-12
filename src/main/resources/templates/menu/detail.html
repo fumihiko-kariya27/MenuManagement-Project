@@ -10,6 +10,7 @@
                 <h1 class="h2" th:text="#{cuisine.info.detail}"></h1>
             </div>
             <form id="cuisine-detail-form" method="post" th:action="@{/cuisine/detail}" class="form-signup" th:object="${cuisineDetailForm}">
+                <input type="hidden" th:field="*{cuisineName}">
                 <!-- メニュー詳細情報 -->
                 <table class="table table-striped table-bordered table-hover">
                     <tbody>
@@ -39,6 +40,10 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="text-center">
+                    <!-- 削除ボタン -->
+                    <button class="btn btn-primary" type="submit" name="delete" th:text="#{cuisine.delete.btn}"></button>
+                </div>
             </form>
         </div>
     </body>

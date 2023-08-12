@@ -14,4 +14,7 @@ public interface CuisineService {
 	
 	/* メニュー１件取得 */
 	public CuisineInfo getCuisineByName(String cuisineName);
+	
+	/* メニュー削除 */
+	public void deleteCuisine(String cuisineName);
 }

@@ -37,4 +37,9 @@ public class CuisineServiceImpl implements CuisineService {
 		return mapper.getCuisineByName(cuisineName);
 	}
 
+	@Override
+	public void deleteCuisine(String cuisineName) {
+		mapper.deleteCuisine(cuisineName);
+	}
+
 }
