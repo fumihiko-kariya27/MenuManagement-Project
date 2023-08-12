@@ -60,7 +60,16 @@ public class CuisineRegistController {
 			return getRegistCuisine(model, form);
 		}
 		
-		CuisineInfo cuisineInfo = modelMapper.map(form, CuisineInfo.class);
+		// 既にメニューが登録されていないか確認する
+		CuisineInfo cuisineInfo = service.getCuisineByName(form.getCuisineName());
+		if(cuisineInfo != null)
+		{
+			// 既に登録されている場合は何もしない
+			log.error(form.getCuisineName() + "は既に登録されています");
+			return "redirect:/menu/list";
+		}
+		
+		cuisineInfo = modelMapper.map(form, CuisineInfo.class);
 		service.registCuisine(cuisineInfo);
 		
 		return "redirect:/menu/list";
