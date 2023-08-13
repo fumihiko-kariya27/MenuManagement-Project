@@ -1,8 +1,6 @@
 package com.example.controller;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +41,7 @@ public class CuisineRegistController {
 	public String getRegistCuisine(Model model, @ModelAttribute CuisineRegistForm form)
 	{
 		// カテゴリ一覧をモデルに追加
-		List<String> cuisineCategories = Arrays.asList(CuisineCategory.values()).stream()
-										.map(category -> category.toString()).collect(Collectors.toList());
+		List<String> cuisineCategories = CuisineCategory.getCategories();
 		model.addAttribute("cuisineCategories", cuisineCategories);
 		
 		return "menu/regist";

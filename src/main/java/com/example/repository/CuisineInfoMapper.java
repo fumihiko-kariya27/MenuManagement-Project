@@ -25,4 +25,7 @@ public interface CuisineInfoMapper {
 	
 	/* メニュー削除 */
 	public void deleteCuisine(String cuisineName);
+	
+	/* カテゴリーでのメニュー検索 */
+	public List<CuisineInfo> getCuisineByCategory(String category);
 }

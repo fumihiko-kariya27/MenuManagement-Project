@@ -1,5 +1,9 @@
 package com.example.domain.cuisine.model;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /*
  * 料理のカテゴリを定義する
  */
@@ -25,6 +29,12 @@ public enum CuisineCategory {
 	public String toString()
 	{
 		return this.category;
+	}
+	
+	// カテゴリー一覧を返却する
+	public static List<String> getCategories()
+	{
+		return Arrays.asList(CuisineCategory.values()).stream().map(category -> category.toString()).collect(Collectors.toList());
 	}
 	
 }

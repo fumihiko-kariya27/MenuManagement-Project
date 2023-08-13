@@ -9,6 +9,15 @@
             <div class="header border-bottom">
                 <h1 class="h2" th:text="#{cuisine.list.title}"></h1>
             </div>
+            <!-- 検索バー表示 -->
+            <form method="post" th:action="@{/menu/list}" class="form-search">
+                <div>
+                    <select name="categories">
+                        <option th:each="category : ${cuisineCategories}" th:value="${category}" th:text="${category}" th:selected="${category==selectedValue}"></option>
+                    </select>
+                    <input type="submit" th:value="#{search_btn}" class="btn btn-primary">
+                </div>
+            </form>
             <!-- 一覧表示 -->
             <div>
                 <table class="table table-striped table-bordered table-hover">

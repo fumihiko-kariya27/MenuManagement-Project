@@ -25,4 +25,8 @@
     <delete id="deleteCuisine">
         DELETE FROM cuisine_master WHERE cuisine_name = #{cuisineName};
     </delete>
+    <!-- カテゴリーによるメニュー検索 -->
+    <select id="getCuisineByCategory" resultMap="cuisineInfo">
+        SELECT * FROM cuisine_master WHERE category = #{category};
+    </select>
 </mapper>
