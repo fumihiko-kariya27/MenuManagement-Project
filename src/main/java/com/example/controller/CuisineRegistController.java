@@ -1,9 +1,12 @@
 package com.example.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Map;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.cuisine.model.CuisineCategory;
 import com.example.domain.cuisine.model.CuisineInfo;
+import com.example.domain.cuisine.model.Ingredients;
 import com.example.domain.cuisine.service.CuisineService;
+import com.example.domain.cuisine.service.IngredientsService;
 import com.example.form.CuisineRegistForm;
 import com.example.form.ValidationGroupOrder;
 
@@ -37,18 +42,25 @@ public class CuisineRegistController {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	@Value("${app.ingredients}")
+	private String ingredientsFile;
+	
 	@GetMapping("/regist")
-	public String getRegistCuisine(Model model, @ModelAttribute CuisineRegistForm form)
-	{
+	public String getRegistCuisine(Model model, @ModelAttribute CuisineRegistForm form) throws FileNotFoundException
+	{	
 		// カテゴリ一覧をモデルに追加
 		List<String> cuisineCategories = CuisineCategory.getCategories();
 		model.addAttribute("cuisineCategories", cuisineCategories);
+		
+		// 食材一覧をモデルに追加
+		Map<String, List<Ingredients>> ingredientsMap = IngredientsService.getIngredients(ingredientsFile);
+		model.addAttribute("ingredientsMap", ingredientsMap);
 		
 		return "menu/regist";
 	}
 	
 	@PostMapping("/regist")
-	public String postRegistCuisine(Model model, @ModelAttribute @Validated(value = ValidationGroupOrder.class) CuisineRegistForm form, BindingResult bindingResult)
+	public String postRegistCuisine(Model model, @ModelAttribute @Validated(value = ValidationGroupOrder.class) CuisineRegistForm form, BindingResult bindingResult) throws FileNotFoundException
 	{
 		if(bindingResult.hasErrors())
 		{

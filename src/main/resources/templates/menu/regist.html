@@ -20,11 +20,18 @@
                     <!-- 料理カテゴリー -->
                     <div class="form-check-inline">
                         <label for="cuisineCategory" th:text="#{regist.cuisineCategory}"></label>
-                        <div  class="categories" th:each="category:${cuisineCategories}">
+                        <div class="categories" th:each="category:${cuisineCategories}">
                             <input type="radio" class="form-check-input" th:value="${category}" th:field="*{category}">
                             <label class="form-check-label" th:text="${category}"></label>
                         </div>
                         <div class="invalid-feedback" th:errors="*{category}"></div>
+                    </div>
+                    <!-- 食材 -->
+                    <div class="form-group">
+                        <div class="categories" th:each="entry:${ingredientsMap}" th:text="${entry.key}">
+                            <div class="ingredient" th:each="ingredient:${entry.value}" th:text="${ingredient.name}">
+                            </div>
+                        </div>
                     </div>
                     <input type="submit" th:value="#{cuisine.regist.btn}" class="btn btn-primary w-100 mt-3">
                 </div>
