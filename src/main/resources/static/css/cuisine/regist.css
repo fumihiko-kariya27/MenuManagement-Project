@@ -1,0 +1,25 @@
+.categories {
+    display: flex;
+}
+
+.category-item {
+    margin: 10px;
+}
+
+.ingredient-category > div > p{
+    font-weight:bold
+}
+
+.ingredients {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    justify-content: center;
+}
+
+.ingredient {
+    margin: 10px;
+}
+
+li {
+    list-style:none;
+}

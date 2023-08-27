@@ -4,7 +4,7 @@
         <meta charset="UTF8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-        <link rel="stylesheet" href="@{/css/cuisine/regist.css}">
+        <link rel="stylesheet" th:href="@{/css/cuisine/regist.css}">
         <title>メニュー登録</title>
     </head>
     <body class="bg-light" layout:fragment="content">
@@ -21,16 +21,23 @@
                     <div class="form-check-inline">
                         <label for="cuisineCategory" th:text="#{regist.cuisineCategory}"></label>
                         <div class="categories" th:each="category:${cuisineCategories}">
-                            <input type="radio" class="form-check-input" th:value="${category}" th:field="*{category}">
-                            <label class="form-check-label" th:text="${category}"></label>
+                            <div class="category-item">
+                                <input type="radio" class="form-check-input" th:value="${category}" th:field="*{category}">
+                                <label class="form-check-label" th:text="${category}"></label>
+                            </div>
                         </div>
                         <div class="invalid-feedback" th:errors="*{category}"></div>
                     </div>
                     <!-- 食材 -->
-                    <div class="form-group">
-                        <div class="categories" th:each="entry:${ingredientsMap}" th:text="${entry.key}">
-                            <div class="ingredient" th:each="ingredient:${entry.value}" th:text="${ingredient.name}">
-                            </div>
+                    <div class="ingredient-category">
+                        <div th:each="entry:${ingredientsMap}">
+                            <p th:text="${entry.key}"></p>
+                            <ul class="ingredients">
+                                <div th:each="ingredient:${entry.value}">
+                                    <input type="checkbox" class="form-check-input" th:value="${ingredient.getName()}">
+                                    <label class="ingredient" th:text="${ingredient.getName()}"></label>
+                                </div>
+                            </ul>
                         </div>
                     </div>
                     <input type="submit" th:value="#{cuisine.regist.btn}" class="btn btn-primary w-100 mt-3">
