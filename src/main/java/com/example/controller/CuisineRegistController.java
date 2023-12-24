@@ -78,6 +78,9 @@ public class CuisineRegistController {
 			return "redirect:/menu/list";
 		}
 		
+		// 選択された食材をデータベース格納形式に変換する
+		String ingredients = IngredientsService.convertIngredients(form);
+		form.setIngredients(ingredients);
 		cuisineInfo = modelMapper.map(form, CuisineInfo.class);
 		service.registCuisine(cuisineInfo);
 		

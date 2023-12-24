@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import com.example.domain.cuisine.model.Ingredients;
+import com.example.form.CuisineRegistForm;
 
 public interface IngredientsService {
 	// 食材一覧の読み込み
@@ -56,5 +57,16 @@ public interface IngredientsService {
 			}
 		} 
 		return ingredientsMap;
+	}
+	
+	// フォーム画面から受け取った食材をカンマ区切りの文字列に変換する
+	public static String convertIngredients(CuisineRegistForm form)
+	{
+		StringBuilder sb = new StringBuilder();
+		for(String ingredient : form.getIngredientsAry())
+		{
+			sb.append(ingredient).append(",");
+		}
+		return sb.substring(0, sb.length() - 1);
 	}
 }

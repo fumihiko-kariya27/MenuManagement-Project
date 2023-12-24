@@ -34,7 +34,7 @@
                             <p th:text="${entry.key}"></p>
                             <ul class="ingredients">
                                 <div th:each="ingredient:${entry.value}">
-                                    <input type="checkbox" class="form-check-input" th:value="${ingredient.getName()}">
+                                    <input type="checkbox" class="form-check-input" th:value="${ingredient.getName()}" th:field="*{ingredientsAry}">
                                     <label class="ingredient" th:text="${ingredient.getName()}"></label>
                                 </div>
                             </ul>

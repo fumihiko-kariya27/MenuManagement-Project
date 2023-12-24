@@ -24,4 +24,8 @@ public class CuisineRegistForm {
 	@NotBlank(groups = ValidationGroupFirst.class)
 	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+", groups = ValidationGroupSecond.class)
 	private String category;
+	
+	// 食材
+	private String[] ingredientsAry;
+	private String ingredients = "";
 }

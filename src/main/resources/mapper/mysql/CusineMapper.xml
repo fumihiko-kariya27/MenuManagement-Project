@@ -15,7 +15,7 @@
     </select>
     <!-- メニュー登録 -->
     <insert id="registCuisine">
-        INSERT INTO cuisine_master(cuisine_name, category) VALUES(#{cuisineName}, #{category})
+        INSERT INTO cuisine_master(cuisine_name, category, ingredients) VALUES(#{cuisineName}, #{category}, #{ingredients})
     </insert>
     <!-- メニュー１件取得 -->
     <select id="getCuisineByName" resultMap="cuisineInfo">
