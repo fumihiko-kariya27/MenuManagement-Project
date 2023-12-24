@@ -25,6 +25,11 @@ public class CuisineRegistForm {
 	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+", groups = ValidationGroupSecond.class)
 	private String category;
 	
+	// 調理方法
+	@NotBlank(groups = ValidationGroupFirst.class)
+	@Pattern(regexp = "[^!\"#$%&'()\\*\\+\\-\\.,\\/:;<=>?@\\[\\\\\\]^_`{|}~]+", groups = ValidationGroupSecond.class)
+	private String cookMethod;
+	
 	// 食材
 	private String[] ingredientsAry;
 	private String ingredients = "";

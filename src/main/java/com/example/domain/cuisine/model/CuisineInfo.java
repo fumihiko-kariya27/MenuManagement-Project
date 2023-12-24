@@ -15,6 +15,8 @@ public class CuisineInfo {
 	private String cuisineName;
 	// カテゴリ
 	private String category;
+	// 調理方法
+	private String cookMethod;
 	// 最近の調理日
 	private String cookDate;
 	// 具材

@@ -17,6 +17,7 @@
                         <input type="text" class="form-control" th:field="*{cuisineName}" th:errorclass="is-invalid">
                         <div class="invalid-feedback" th:errors="*{cuisineName}"></div>
                     </div>
+                    <br>
                     <!-- 料理カテゴリー -->
                     <div class="form-check-inline">
                         <label for="cuisineCategory" th:text="#{regist.cuisineCategory}"></label>
@@ -28,6 +29,19 @@
                         </div>
                         <div class="invalid-feedback" th:errors="*{category}"></div>
                     </div>
+                    <br>
+                    <!-- 調理方法 -->
+                    <div class="form-check-inline">
+                        <label for="cookMethods" th:text="#{regist.cookMethod}"></label>
+                        <div class="cookMethods" th:each="cookMethod:${cookMethods}">
+                            <div class="cookMethod-item">
+                                <input type="radio" class="form-check-input" th:value="${cookMethod}" th:field="*{cookMethod}">
+                                <label class="form-check-label" th:text="${cookMethod}"></label>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback" th:errors="*{cookMethod}"></div>
+                    </div>
+                    <br>
                     <!-- 食材 -->
                     <div class="ingredient-category">
                         <div th:each="entry:${ingredientsMap}">

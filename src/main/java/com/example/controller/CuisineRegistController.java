@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.cuisine.model.CuisineCategory;
+import com.example.domain.cuisine.model.CookingMethod;
 import com.example.domain.cuisine.model.CuisineInfo;
 import com.example.domain.cuisine.model.Ingredients;
 import com.example.domain.cuisine.service.CuisineService;
@@ -51,6 +52,10 @@ public class CuisineRegistController {
 		// カテゴリ一覧をモデルに追加
 		List<String> cuisineCategories = CuisineCategory.getCategories();
 		model.addAttribute("cuisineCategories", cuisineCategories);
+		
+		// 調理方法一覧をモデルに追加
+		List<String> cookMethods = CookingMethod.getCookMethods();
+		model.addAttribute("cookMethods", cookMethods);
 		
 		// 食材一覧をモデルに追加
 		Map<String, List<Ingredients>> ingredientsMap = IngredientsService.getIngredients(ingredientsFile);
