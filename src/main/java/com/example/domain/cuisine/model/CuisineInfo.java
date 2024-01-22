@@ -1,5 +1,9 @@
 package com.example.domain.cuisine.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 /**
@@ -8,7 +12,10 @@ import lombok.Data;
  */
 
 @Data
+@Entity
 public class CuisineInfo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	// ID
 	private String cuisineId;
 	// 料理名
