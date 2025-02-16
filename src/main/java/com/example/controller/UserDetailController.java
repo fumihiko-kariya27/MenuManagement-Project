@@ -2,10 +2,13 @@ package com.example.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +45,18 @@ public class UserDetailController {
 		model.addAttribute("userDetail", form);
 		
 		return "user/detail";
+	}
+	
+	@InitBinder("userDetailForm")
+	public void initUserDetailForm(WebDataBinder binder) {
+		// デバッグ用
+		System.out.println("バインド初期化処理が呼び出されました");
+		
+		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+		/*
+		 * 更新したいのはuserNameのみであるが、更新時にPKであるuserIdを参照する必要があるため、左記2項目のみを設定可能とする
+		 */
+		binder.setAllowedFields("userDetailForm.userId", "userDetailForm.userName");
 	}
 	
 	// ユーザー更新処理
