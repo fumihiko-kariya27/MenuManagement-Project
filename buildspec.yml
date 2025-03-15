@@ -1,0 +1,33 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+
+  pre_build:
+    commands:
+      - echo start pre build.
+      - echo finish pre build.
+
+  build:
+    commands:
+      - echo start build.
+      # Spring Bootプロジェクトのビルド（jarの作成）
+      - mvn clean package -DskipTests
+      - echo finish build.
+
+  post_build:
+    commands:
+      - echo start post build.
+      # S3にアップロードするファイルを所定のディレクトリにコピー
+      - mkdir -p artifacts
+      - cp target/MenuProject-0.0.1-SNAPSHOT.jar artifacts
+      - echo finish post build.
+
+artifacts:
+  # S3にアップロードするファイルを指定
+  files:
+    - MenuProject-0.0.1-SNAPSHOT.jar
+  # ベースディレクトリ
+  base-directory: artifacts
