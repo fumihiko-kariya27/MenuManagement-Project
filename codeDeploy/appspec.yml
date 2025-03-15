@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /App
+permissions:
+  - object: /App
+    pattern: "app"
+    owner: appuser
+    group: appuser
+    mode: 755ß
+    type:
+      - directory

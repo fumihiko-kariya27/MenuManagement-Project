@@ -23,11 +23,13 @@ phases:
       # S3にアップロードするファイルを所定のディレクトリにコピー
       - mkdir -p artifacts
       - cp target/MenuProject-0.0.1-SNAPSHOT.jar artifacts
+      - cp codeDeploy/appspec.yml artifacts
       - echo finish post build.
 
 artifacts:
   # S3にアップロードするファイルを指定
   files:
     - MenuProject-0.0.1-SNAPSHOT.jar
+    - appspec.yml
   # ベースディレクトリ
   base-directory: artifacts
