@@ -11,3 +11,7 @@ permissions:
     mode: 755ß
     type:
       - directory
+hooks:
+  ApplicationStart:
+    - location: service_restart.sh
+      timeout: 300
