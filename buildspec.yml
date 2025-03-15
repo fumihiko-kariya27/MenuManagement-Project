@@ -24,7 +24,7 @@ phases:
       - mkdir -p artifacts
       - cp target/MenuProject-0.0.1-SNAPSHOT.jar artifacts
       - cp codeDeploy/appspec.yml artifacts
-      - cp codeDeploy/service_restart.sh artifacts
+      - cp codeDeploy/*.sh artifacts
       - echo finish post build.
 
 artifacts:
@@ -32,6 +32,6 @@ artifacts:
   files:
     - MenuProject-0.0.1-SNAPSHOT.jar
     - appspec.yml
-    - service_restart.sh
+    - ./*.sh
   # ベースディレクトリ
   base-directory: artifacts

@@ -11,6 +11,10 @@ permissions:
     type:
       - directory
 hooks:
+  BeforeInstall:
+    - location: clean.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
     - location: service_restart.sh
       timeout: 300
