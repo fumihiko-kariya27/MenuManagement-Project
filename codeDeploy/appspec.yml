@@ -5,10 +5,9 @@ files:
     destination: /App
 permissions:
   - object: /App
-    pattern: "app"
     owner: appuser
     group: appuser
-    mode: 755ß
+    mode: 755
     type:
       - directory
 hooks:
