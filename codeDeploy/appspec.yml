@@ -12,9 +12,13 @@ permissions:
       - directory
 hooks:
   BeforeInstall:
-    - location: clean.sh
+    - location: preInstall.sh
       timeout: 300
       runas: root
   ApplicationStart:
     - location: service_restart.sh
       timeout: 300
+  AfterInstall:
+    - location: postInstall.sh
+      timeout: 300
+      runas: root
